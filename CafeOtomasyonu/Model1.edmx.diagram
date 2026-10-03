@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0338203456b74125a7583411f4a9509d" Name="Diagram1">
+        <EntityTypeShape EntityType="CafeModel.PersonelBilgileri" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeModel.PersonelGiris" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeModel.Admins" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CafeModel.Masa" Width="1.5" PointX="8" PointY="0.5" />
+        <EntityTypeShape EntityType="CafeModel.MasaKategori" Width="1.5" PointX="10.25" PointY="3.5" />
+        <EntityTypeShape EntityType="CafeModel.MenuKategori" Width="1.5" PointX="5.625" PointY="1.125" />
+        <EntityTypeShape EntityType="CafeModel.Odeme" Width="1.5" PointX="0.5" PointY="0.625" />
+        <EntityTypeShape EntityType="CafeModel.Siparis" Width="1.5" PointX="5.625" PointY="3.75" />
+        <EntityTypeShape EntityType="CafeModel.SiparisDetay" Width="1.5" PointX="8" PointY="3.5" />
+        <EntityTypeShape EntityType="CafeModel.Urun" Width="1.5" PointX="10.125" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

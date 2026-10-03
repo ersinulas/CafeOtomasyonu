@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CafeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kul" Type="nchar" MaxLength="50" />
+          <Property Name="pass" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Masa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MasaAdi" Type="varchar" MaxLength="50" />
+          <Property Name="MasaKategoriİd" Type="int" />
+          <Property Name="Durum" Type="int" />
+          <Property Name="AktifMi" Type="int" />
+        </EntityType>
+        <EntityType Name="MasaKategori">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MenuKategori">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Odeme">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiparisID" Type="int" />
+          <Property Name="PersonelID" Type="int" />
+          <Property Name="Tutar" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OdemeTuru" Type="nchar" MaxLength="10" />
+          <Property Name="OdemeTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PersonelBilgileri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nchar" MaxLength="50" />
+          <Property Name="Soyad" Type="nchar" MaxLength="50" />
+          <Property Name="Tel" Type="int" />
+          <Property Name="maas" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PersonelGiris">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kul" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PersonelBilgileri" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MasaId" Type="int" />
+          <Property Name="PersonelId" Type="int" />
+          <Property Name="AcilisTarihi" Type="datetime" />
+          <Property Name="KapandiMi" Type="int" />
+          <Property Name="KapanisTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SiparisDetay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiparisID" Type="int" />
+          <Property Name="UrunID" Type="int" />
+          <Property Name="Adet" Type="int" />
+          <Property Name="BirimFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="İptalMi" Type="int" />
+          <Property Name="iptalTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunAdi" Type="nchar" MaxLength="150" />
+          <Property Name="Fiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MenuKategoriID" Type="int" />
+          <Property Name="AktifMi" Type="int" />
+        </EntityType>
+        <EntityContainer Name="CafeModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Masa" EntityType="Self.Masa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasaKategori" EntityType="Self.MasaKategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuKategori" EntityType="Self.MenuKategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Odeme" EntityType="Self.Odeme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelBilgileri" EntityType="Self.PersonelBilgileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelGiris" EntityType="Self.PersonelGiris" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siparis" EntityType="Self.Siparis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiparisDetay" EntityType="Self.SiparisDetay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CafeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PersonelBilgileri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Tel" Type="Int32" />
+          <Property Name="maas" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PersonelGiris">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kul" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PersonelBilgileri" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CafeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PersonelBilgileri" EntityType="Self.PersonelBilgileri" />
+          <EntitySet Name="PersonelGiris" EntityType="Self.PersonelGiris" />
+          <EntitySet Name="Admins" EntityType="CafeModel.Admins" />
+          <EntitySet Name="Masa" EntityType="CafeModel.Masa" />
+          <EntitySet Name="MasaKategori" EntityType="CafeModel.MasaKategori" />
+          <EntitySet Name="MenuKategori" EntityType="CafeModel.MenuKategori" />
+          <EntitySet Name="Odeme" EntityType="CafeModel.Odeme" />
+          <EntitySet Name="Siparis" EntityType="CafeModel.Siparis" />
+          <EntitySet Name="SiparisDetay" EntityType="CafeModel.SiparisDetay" />
+          <EntitySet Name="Urun" EntityType="CafeModel.Urun" />
+        </EntityContainer>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kul" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Masa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MasaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MasaKategoriİd" Type="Int32" />
+          <Property Name="Durum" Type="Int32" />
+          <Property Name="AktifMi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MasaKategori">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MenuKategori">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Odeme">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisID" Type="Int32" />
+          <Property Name="PersonelID" Type="Int32" />
+          <Property Name="Tutar" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OdemeTuru" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="OdemeTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MasaId" Type="Int32" />
+          <Property Name="PersonelId" Type="Int32" />
+          <Property Name="AcilisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="KapandiMi" Type="Int32" />
+          <Property Name="KapanisTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SiparisDetay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisID" Type="Int32" />
+          <Property Name="UrunID" Type="Int32" />
+          <Property Name="Adet" Type="Int32" />
+          <Property Name="BirimFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="İptalMi" Type="Int32" />
+          <Property Name="iptalTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunAdi" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="Fiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MenuKategoriID" Type="Int32" />
+          <Property Name="AktifMi" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CafeModelStoreContainer" CdmEntityContainer="CafeEntities">
+          <EntitySetMapping Name="PersonelBilgileri">
+            <EntityTypeMapping TypeName="CafeModel.PersonelBilgileri">
+              <MappingFragment StoreEntitySet="PersonelBilgileri">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="maas" ColumnName="maas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelGiris">
+            <EntityTypeMapping TypeName="CafeModel.PersonelGiris">
+              <MappingFragment StoreEntitySet="PersonelGiris">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Kul" ColumnName="Kul" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="PersonelBilgileri" ColumnName="PersonelBilgileri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="CafeModel.Admins">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="kul" ColumnName="kul" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Masa">
+            <EntityTypeMapping TypeName="CafeModel.Masa">
+              <MappingFragment StoreEntitySet="Masa">
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="MasaKategoriİd" ColumnName="MasaKategoriİd" />
+                <ScalarProperty Name="MasaAdi" ColumnName="MasaAdi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasaKategori">
+            <EntityTypeMapping TypeName="CafeModel.MasaKategori">
+              <MappingFragment StoreEntitySet="MasaKategori">
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuKategori">
+            <EntityTypeMapping TypeName="CafeModel.MenuKategori">
+              <MappingFragment StoreEntitySet="MenuKategori">
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Odeme">
+            <EntityTypeMapping TypeName="CafeModel.Odeme">
+              <MappingFragment StoreEntitySet="Odeme">
+                <ScalarProperty Name="OdemeTarihi" ColumnName="OdemeTarihi" />
+                <ScalarProperty Name="OdemeTuru" ColumnName="OdemeTuru" />
+                <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="SiparisID" ColumnName="SiparisID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparis">
+            <EntityTypeMapping TypeName="CafeModel.Siparis">
+              <MappingFragment StoreEntitySet="Siparis">
+                <ScalarProperty Name="KapanisTarihi" ColumnName="KapanisTarihi" />
+                <ScalarProperty Name="KapandiMi" ColumnName="KapandiMi" />
+                <ScalarProperty Name="AcilisTarihi" ColumnName="AcilisTarihi" />
+                <ScalarProperty Name="PersonelId" ColumnName="PersonelId" />
+                <ScalarProperty Name="MasaId" ColumnName="MasaId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiparisDetay">
+            <EntityTypeMapping TypeName="CafeModel.SiparisDetay">
+              <MappingFragment StoreEntitySet="SiparisDetay">
+                <ScalarProperty Name="iptalTarihi" ColumnName="iptalTarihi" />
+                <ScalarProperty Name="İptalMi" ColumnName="İptalMi" />
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+                <ScalarProperty Name="SiparisID" ColumnName="SiparisID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urun">
+            <EntityTypeMapping TypeName="CafeModel.Urun">
+              <MappingFragment StoreEntitySet="Urun">
+                <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+                <ScalarProperty Name="MenuKategoriID" ColumnName="MenuKategoriID" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
